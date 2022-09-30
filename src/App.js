@@ -1,0 +1,26 @@
+import { Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar';
+import Elementary from './pages/Elementary';
+import Intermediate from './pages/Intermediate';
+import UpperIntermediate from './pages/UpperIntermediate';
+import Reading from './pages/Reading';
+import QA from './pages/QA';
+
+function App() {
+  return (
+    <div className='bg-stone-50 h-screen'>
+      <Navbar />
+      <div className='container mx-auto'>
+        <Routes>
+          <Route path='/elementary' element={<Elementary />} />
+          <Route path='/intermediate' element={<Intermediate />} />
+          <Route path='/upper-intermediate' element={<UpperIntermediate />} />
+          <Route path='/reding' element={<Reading />} />
+          <Route path='/qa' element={<QA />} />
+        </Routes>
+      </div>
+    </div>
+  );
+}
+
+export default App;

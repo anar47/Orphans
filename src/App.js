@@ -5,6 +5,7 @@ import Intermediate from './pages/Intermediate';
 import UpperIntermediate from './pages/UpperIntermediate';
 import Reading from './pages/Reading';
 import Quiz from './pages/Quiz';
+import Essay from './pages/Essay';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path='/upper-intermediate' element={<UpperIntermediate />} />
           <Route path='/reding' element={<Reading />} />
           <Route path='/qa' element={<Quiz />} />
+          <Route path='/essay' element={<Essay />} />
         </Routes>
       </div>
     </div>

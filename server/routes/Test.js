@@ -20,6 +20,6 @@ router.post('/save-results', /*checkAuth, */(req, res) => {
     })
 });
 
-router.post('/:id', getTest)
+router.get('/:id', getTest)
 
 module.exports = router;

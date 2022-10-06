@@ -14,20 +14,33 @@ const userSchema = new Schema({
     phoneNumber: {
         type: String
     },
-    disabilityType: {
-        type: String,
-        required: true
-    },
     currentStage: {
         type: String,
-        required: true
+        required: true,
+        default: "NOT_INVITED"
     },
     examLevel: {
         type: String,
         required: true
     },
+    totalScore: {
+        type: Number
+    },
     registeredDate: {
         type: Date
+    },
+    essayAnswer: {
+        type: String
+    },
+    readingAnswers: {
+        type: [Number]
+    },
+    readingExamScore: {
+        type: Number
+    },
+    disabilityType: {
+        type: String,
+        required: true
     }
 })
 

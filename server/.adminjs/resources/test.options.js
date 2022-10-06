@@ -4,17 +4,11 @@ const TestResourceOptions = {
     resource: Test,
     options: {
         properties: {
-            title: {
-                isRequired: true
-            },
             _id: {
                 isVisible: false
             },
-            body: {
+            readingBody: {
                 type: 'richtext',
-                isRequired: true
-            },
-            questions: {
                 isRequired: true
             },
             difficulity: {

@@ -2,17 +2,20 @@ const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
 const { User } = require("../../models/User.model");
 const { Test } = require('../../models/Test.model')
-/*
+const { makePDF } = require('../../controllers/download')
+
 const hasTakenTest = ({ record }) => {
     return record.params.currentStage === "TAKEN"
 }
+
 const testScoreViewHandler = (request, response, context) => {
-    const user = context.record;
+    const user = context.record.params
+    makePDF(user)
     return {
         record: user.toJSON(),
     }
 };
-*/
+
 const messageHandler = (req, res, context) => {
     const user = context.record.params
     const email = user.email
@@ -83,15 +86,14 @@ const UserResourceOptions = {
     resource: User,
     options: {
         actions: {
-            /*
-            SeeTestScore: {
+            DownloadTestScore: {
                 actionType: 'record',
                 icon: 'View',
                 isVisible: hasTakenTest,
                 handler: testScoreViewHandler,
-                component: AdminJS.bundle('../pages/test-score')
-            },*/
-            SendInformation: {
+                guard: "Test score was downloaded successfully"
+            },
+            SendInvitation: {
                 actionType: 'record',
                 icon: 'View',
                 handler: messageHandler,
@@ -137,7 +139,7 @@ const UserResourceOptions = {
                 isRequired: false
             }
         } 
-    }
+    }, 
 }
 
 module.exports = {

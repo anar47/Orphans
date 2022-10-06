@@ -4,6 +4,6 @@ const Question = require( "../models/Question.model")
 
 const router = express.Router();
 
-router.post("/:id", getQuestion)
+router.get("/:id", getQuestion)
 
 module.exports = router

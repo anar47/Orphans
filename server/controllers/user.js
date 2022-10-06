@@ -1,6 +1,6 @@
-const User = require('../models/User.model')
+const {User} = require('../models/User.model')
 
-export const getUser = async(req, res) => {
+const getUser = async(req, res) => {
     try{
         const user = await User.findById(
             req.params.id
@@ -11,4 +11,36 @@ export const getUser = async(req, res) => {
     }
 }
 
-module.exports = {getUser}
+const updateUserScore = async(req, res) => {
+    try{
+        const updatedUser = await User.findOneAndUpdate(
+            {'email': req.params.email},
+            { $set: {
+                "readingExamScore" : req.body.score,
+                "readingAnswers" : req.body.answers
+            }},
+            { new: true }
+          );
+          res.status(200).json(updatedUser);
+    } catch (err) {
+          console.log(err.message);
+    }
+}
+
+const updateUserEssay = async(req, res) => {
+    try{
+        const updatedUser = await User.findOneAndUpdate(
+            {'email': req.params.email},
+            { $set: {
+                "essayAnswer" : req.body.essay,
+                "currentStage" : "TAKEN"
+            }},
+            { new: true }
+          );
+          res.status(200).json(updatedUser);
+    } catch (err) {
+          console.log(err.message);
+    }
+}
+
+module.exports = {getUser, updateUserScore, updateUserEssay}

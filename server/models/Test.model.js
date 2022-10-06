@@ -1,20 +1,24 @@
 const mongoose = require('mongoose')
 
 const testSchema = new mongoose.Schema({
-    title: {
+    readingTitle: {
         type: String,
         required: true
     },
-    body: {
+    readingBody: {
         type: String,
         required: true
     },
-    questions: {
+    readingQuestions: {
         type: [mongoose.Types.ObjectId],
         ref: 'Question',
         required: true,
     },
     difficulity: {
+        type: String,
+        required: true
+    },
+    essayQuestion: {
         type: String,
         required: true
     }

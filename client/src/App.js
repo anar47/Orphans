@@ -1,21 +1,17 @@
-import React, {useEffect, useState} from 'react';
 import { Route, Routes} from 'react-router-dom'
-import Navbar from './components/Navbar';
-import Elementary from './pages/Elementary';
-import Intermediate from './pages/Intermediate';
-import UpperIntermediate from './pages/UpperIntermediate';
 import Auth from './components/Auth';
 import Quiz from './pages/Quiz';
+import Essay from './pages/Essay';
+import Submit from './pages/Submit';
 
 function App() {
-
-
   return (
     <div className='bg-stone-50 h-screen'>
-      <Navbar />
       <div className='container mx-auto'>
         <Routes>
           <Route path='/auth' element={<Auth />} />
+          <Route path='/essay' element={<Essay/>} />
+          <Route path='/submit' element={<Submit/>}/>
           <Route path='*' element={<Quiz/>} />
         </Routes>
       </div>

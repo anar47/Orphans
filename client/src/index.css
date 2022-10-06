@@ -4,6 +4,54 @@
   margin: 0;
 }
 
+.Quiz_multiple_options{
+  text-align: center;
+}
+
+.normal{
+  text-decoration: none;
+}
+
+.jumbotron{
+  margin-top: 25vmin
+}
+
+.wrapper{
+  margin: 10;
+}
+
+.radio{
+  justify-content: center;
+}
+
+input[type="radio"] + label span {
+  transition: background .2s,
+    transform .2s;
+}
+
+input[type="radio"] + label span:hover,
+input[type="radio"] + label:hover span{
+transform: scale(1.2);
+} 
+
+input[type="radio"]:checked + label span {
+background-color: #3490DC; 
+}
+
+input[type="radio"]:checked + label{
+ color: #3490DC; 
+}
+
+.popUp {
+  position: absolute;
+  left: 0;
+  right: 100%;
+  top: -8rem;
+  transform: translateX(-30%);
+}
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

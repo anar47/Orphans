@@ -8,6 +8,7 @@ const AdminJSMongoose = require('@adminjs/mongoose')
 const AdminJSExpress = require('@adminjs/express')
 const Auth = require('./routes/Auth')
 const Test = require('./routes/Test')
+const User = require('./routes/User')
 const Question = require('./routes/Question')
 AdminJS.registerAdapter(AdminJSMongoose)
 
@@ -26,6 +27,7 @@ const config = require('./.adminjs/config')
 const {UserResourceOptions} = require('./.adminjs/resources/user.options')
 const {QuestionResourceOptions} = require('./.adminjs/resources/question.options')
 const {TestResourceOptions} = require('./.adminjs/resources/test.options')
+const { useRecords } = require('adminjs')
 
 const start = async () => {
 
@@ -36,7 +38,7 @@ const start = async () => {
         branding: {
             logo: false,
             companyName: 'Salva Vita',
-        },
+        }
     })
   const adminRouter = AdminJSExpress.buildRouter(adminJS)
   app.use(adminJS.options.rootPath, adminRouter)
@@ -61,6 +63,7 @@ app.use(session({
 
 app.use('/auth', Auth)
 app.use('/test', Test)
+app.use('/user', User)
 app.use('/question', Question)
 
 mongoose.connect(process.env.DB_URI, {
